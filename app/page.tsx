@@ -359,7 +359,7 @@ const App = () => {
         <div className="container mx-auto px-4 py-8">
           <div className="text-center">
             <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-              © 2024 Galeri Game Siswa. Dibuat dengan ❤️ untuk para pembuat game masa depan.
+              © 2025 Galeri Game Siswa. Dibuat dengan ❤️ untuk para pembuat game masa depan.
             </p>
           </div>
         </div>
