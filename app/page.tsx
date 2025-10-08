@@ -139,6 +139,16 @@ const gamesData = [
     thumbnail: "https://plus.unsplash.com/premium_vector-1736769744739-5b4c632a970c?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     scratch_url: "https://scratch.mit.edu/projects/1209811863"
   },
+  {
+    id: 16,
+    judul: "Space Ship game",
+    pembuat: "Brian/brilliantrmn",
+    kelas: "8 Putra",
+    deskripsi: "Game tembak batu.",
+    thumbnail: "https://plus.unsplash.com/premium_vector-1721478854284-60b9336483d9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c3BhY2VzaGlwfGVufDB8fDB8fHww",
+    scratch_url: "https://scratch.mit.edu/projects/1075804143"
+  },
+
 ];
 
 const App = () => {
