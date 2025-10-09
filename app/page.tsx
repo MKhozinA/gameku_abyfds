@@ -148,6 +148,24 @@ const gamesData = [
     thumbnail: "https://plus.unsplash.com/premium_vector-1721478854284-60b9336483d9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c3BhY2VzaGlwfGVufDB8fDB8fHww",
     scratch_url: "https://scratch.mit.edu/projects/1075804143"
   },
+  {
+    id: 17,
+    judul: "White Square's Generic Platformer Voyage",    
+    pembuat: "Faiz Abqari Nugroho",
+    kelas: "8 Putra",
+    deskripsi: "This game has eight stages. It's pretty short.",
+    thumbnail: "https://plus.unsplash.com/premium_vector-1750347148884-c64e1412e6f1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGN1YmV8ZW58MHx8MHx8fDA%3D",
+    scratch_url: "https://scratch.mit.edu/projects/1068807951"
+  },
+  {
+    id: 18,
+    judul: "Space War",
+    pembuat: "Hafizh Ar Rayyan P.",
+    kelas: "8 Putra",
+    deskripsi: "Game Space War adalah game tembak-tembakan luar angkasa yang menantang pemain untuk mengalahkan musuh dan menghindari rintangan di galaksi yang penuh bahaya.",
+    thumbnail: "https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjhlNzNhMzc3ZTc4ODE5MWI3ZjdkNGM0NGE3NjIyNjg6ZmlsZV8wMDAwMDAwMDQ0MDg2MWY0YTA0Mzk2MzBiYTYwZjc1MyIsInRzIjoiMjAzNzAiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6IjMyYmQwMGUyZjg4OGM4MmRiNjhkZjUzNjgxYjFmZjUyMjJiODNmMzc2NWE3YWY5ZGFiZGQ3YzgyNGNiNDdkZTgiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9",
+    scratch_url: "https://scratch.mit.edu/projects/1068175480"
+  }
 
 ];
 
