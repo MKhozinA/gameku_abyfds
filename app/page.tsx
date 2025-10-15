@@ -250,6 +250,15 @@ const gamesData = [
     thumbnail: "https://i.pinimg.com/736x/af/dc/c1/afdcc122aa1e38f11bf4f666e4eb197c.jpg",
     scratch_url: "https://scratch.mit.edu/projects/1226256439/",
   },
+  {
+    id: 24,
+    judul: "Eat The Fish",
+    pembuat: "Devin Ahmad Dipanegara",
+    kelas: "8 Putra",
+    deskripsi: "Makan ikan dan hindari ikan buntal",
+    thumbnail: "https://plus.unsplash.com/premium_vector-1732776846959-6b24258ecb72?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNoYXJrfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600",
+    scratch_url: "https://scratch.mit.edu/projects/1058126666",
+  }
 ];
 
 const App = () => {
