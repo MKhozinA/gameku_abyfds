@@ -165,8 +165,43 @@ const gamesData = [
     deskripsi: "Game Space War adalah game tembak-tembakan luar angkasa yang menantang pemain untuk mengalahkan musuh dan menghindari rintangan di galaksi yang penuh bahaya.",
     thumbnail: "https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjhlNzNhMzc3ZTc4ODE5MWI3ZjdkNGM0NGE3NjIyNjg6ZmlsZV8wMDAwMDAwMDQ0MDg2MWY0YTA0Mzk2MzBiYTYwZjc1MyIsInRzIjoiMjAzNzAiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6IjMyYmQwMGUyZjg4OGM4MmRiNjhkZjUzNjgxYjFmZjUyMjJiODNmMzc2NWE3YWY5ZGFiZGQ3YzgyNGNiNDdkZTgiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9",
     scratch_url: "https://scratch.mit.edu/projects/1068175480"
-  }
-
+  },
+  {
+    id: 19,
+    judul: "SNAKE GAME",
+    pembuat: "Abdullah Farras An Naufal",
+    kelas: "8 Putra",
+    deskripsi: "Game SNAKE adalah game klasik di mana pemain mengendalikan ular yang tumbuh lebih panjang saat memakan makanan, sambil menghindari tabrakan dengan dinding dan dirinya sendiri.",
+    thumbnail: "https://plus.unsplash.com/premium_vector-1689096751455-ceb88f7a71ae?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c25ha2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600",
+    scratch_url: "https://scratch.mit.edu/projects/1221162551"
+  },
+  {
+    id: 20,
+    judul: "Backroom 1.3",
+    pembuat: "Danendra Bilfaqih Wahyudi",
+    kelas: "8 Putra",
+    deskripsi: "Game menjelajahi ruangan tak berujung dengan suasana menegangkan.",
+    thumbnail: "https://plus.unsplash.com/premium_vector-1744086369212-749430471d77?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZW1wdHklMjByb29tfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600",
+    scratch_url: "https://scratch.mit.edu/projects/1066634193"
+  },
+{
+  id: 21,
+  judul: "EAT the fish",
+  pembuat: "Faaris Abdillah AN",
+  kelas: "8 Putra",
+  deskripsi: "Makan ikan dan hindari ikan buntal",
+  thumbnail: "https://plus.unsplash.com/premium_vector-1746271200126-a3d8d152a8a7?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hhcmt8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600",
+  scratch_url: "https://scratch.mit.edu/projects/1223978781/"
+},
+{
+  id: 22,
+  judul: "Space Adventure",
+  pembuat: "Ghaisan Avicenna Fatihul Ichsan",
+  kelas: "8 Putra",
+  deskripsi: "Game petualangan luar angkasa dengan rintangan menarik.",
+  thumbnail: "https://plus.unsplash.com/premium_vector-1721294461083-da2763b727a3?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cm9ja2V0fGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600",
+  scratch_url: "https://scratch.mit.edu/projects/1078125412"
+},
 ];
 
 const App = () => {
