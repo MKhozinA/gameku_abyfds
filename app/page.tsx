@@ -163,9 +163,8 @@ const gamesData = [
     judul: "Boboiboy Game",
     pembuat: "Husna Dzakiyyah & Kayla Salsabila",
     kelas: "8 Putri",
-    deskripsi: "Game menangkap buah yang jatuh.",
-    thumbnail:
-      "https://plus.unsplash.com/premium_vector-1736769744739-5b4c632a970c?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    deskripsi: "Game ini adalah game menangkap buah buah yang jatuh. Ada dua buah yang harus ditangkap,yaitu buah jeruk dan strawberry. Game ini melatih kecepatan, ketelitian, dan strategi, karena suatu saat posisi buah jatuh tidak menentu dan jika buah mengenai garis merah maka skor akan mengulang dari awal.",
+    thumbnail: "/BOBOIBOY GAME thumbnail.png",
     scratch_url: "https://scratch.mit.edu/projects/1209811863",
   },
   {
@@ -246,8 +245,10 @@ const gamesData = [
     judul: "menangkap kucing",
     pembuat: "falin salisa",
     kelas: "8 Putri",
-    deskripsi: "jadi ada 2 kucing yang harus di tangkap sampe jatuh ke warna merah nanti mati",
-    thumbnail: "https://i.pinimg.com/736x/af/dc/c1/afdcc122aa1e38f11bf4f666e4eb197c.jpg",
+    deskripsi:
+      "jadi ada 2 kucing yang harus di tangkap sampe jatuh ke warna merah nanti mati",
+    thumbnail:
+      "https://i.pinimg.com/736x/af/dc/c1/afdcc122aa1e38f11bf4f666e4eb197c.jpg",
     scratch_url: "https://scratch.mit.edu/projects/1226256439/",
   },
   {
@@ -256,9 +257,10 @@ const gamesData = [
     pembuat: "Devin Ahmad Dipanegara",
     kelas: "8 Putra",
     deskripsi: "Makan ikan dan hindari ikan buntal",
-    thumbnail: "https://plus.unsplash.com/premium_vector-1732776846959-6b24258ecb72?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNoYXJrfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600",
+    thumbnail:
+      "https://plus.unsplash.com/premium_vector-1732776846959-6b24258ecb72?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNoYXJrfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600",
     scratch_url: "https://scratch.mit.edu/projects/1058126666",
-  }
+  },
 ];
 
 const App = () => {
@@ -578,7 +580,7 @@ const App = () => {
                   </div>
 
                   <p
-                    className={`text-sm mb-4 line-clamp-2 ${
+                    className={`text-sm mb-4 line-clamp-5 ${
                       darkMode ? "text-gray-400" : "text-gray-600"
                     }`}
                   >
