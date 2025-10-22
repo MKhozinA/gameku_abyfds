@@ -163,7 +163,8 @@ const gamesData = [
     judul: "Boboiboy Game",
     pembuat: "Husna Dzakiyyah & Kayla Salsabila",
     kelas: "8 Putri",
-    deskripsi: "Game ini adalah game menangkap buah buah yang jatuh. Ada dua buah yang harus ditangkap,yaitu buah jeruk dan strawberry. Game ini melatih kecepatan, ketelitian, dan strategi, karena suatu saat posisi buah jatuh tidak menentu dan jika buah mengenai garis merah maka skor akan mengulang dari awal.",
+    deskripsi:
+      "Game ini adalah game menangkap buah buah yang jatuh. Ada dua buah yang harus ditangkap,yaitu buah jeruk dan strawberry. Game ini melatih kecepatan, ketelitian, dan strategi, karena suatu saat posisi buah jatuh tidak menentu dan jika buah mengenai garis merah maka skor akan mengulang dari awal.",
     thumbnail: "/BOBOIBOY GAME thumbnail.png",
     scratch_url: "https://scratch.mit.edu/projects/1209811863",
   },
@@ -261,6 +262,55 @@ const gamesData = [
       "https://plus.unsplash.com/premium_vector-1732776846959-6b24258ecb72?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNoYXJrfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600",
     scratch_url: "https://scratch.mit.edu/projects/1058126666",
   },
+  {
+    id: 25,
+    judul: "survival zombie",
+    pembuat: "Muhammad Hanif Ibadurrahman",
+    kelas: "8 Putra",
+    deskripsi: "Bertahan dari zombie",
+    thumbnail: "/Picture1.png",
+    scratch_url: "https://scratch.mit.edu/projects/1069830827",
+  },
+  {
+    id: 26,
+    judul: "Space Shooter",
+    pembuat: "Alya Syadni Nafiza",
+    kelas: "8 Putri",
+    deskripsi:
+      "Game Ini Bernama Space Shooter Berupa Roket Yang Menembak Rintangan Menggunakan Bola. Yang Bermanfaat Untuk Melatih Koordinasi Motorik Dan Terbiasa Berpikir Cepat.",
+    thumbnail: "/cover art space schooter.jpeg",
+    scratch_url: "https://scratch.mit.edu/projects/1073727268",
+  },
+  {
+    id: 27,
+    judul: "Car",
+    pembuat: "Raihan Kamil Widadi",
+    kelas: "8 Putra",
+    deskripsi:
+      "Game menghindari mobil agar mobil yang pemain kendarai tidak tertabrak",
+    thumbnail: "/car.png",
+    scratch_url: "https://scratch.mit.edu/projects/1231988572/",
+  },
+  {
+    id: 28,
+    judul: "Flappy Fluttershy",
+    pembuat: "Mahestri Marsya Yogasworo & Nashita Rania Farannisa",
+    kelas: "8 Putri",
+    deskripsi: "Flappy Fluttershy adalah permainan yang mengharuskan pemainnya mengontrol seekor pony untuk melewati celah antara dua pipa yang datang dan tidak terbatas dengan ketinggian yang berbeda-beda tanpa menabraknya. Jika pony menabrak pipa-pipa itu, game akan selesai.",
+    thumbnail: "/poster game flappy fluttershy.png",
+    scratch_url: "https://scratch.mit.edu/projects/1071981618",
+  },
+  {
+    id: 29,
+    judul: "jumping chick",
+    pembuat: " Shakela Afiqah Wijaya",
+    kelas: "8 Putri",
+    deskripsi:
+      "Game ini bernama jumping chick. Game ini bertujuan untuk membuat anak-anak dapat bertahan hidup di lingkungan sekitar.",
+    thumbnail: "https://plus.unsplash.com/premium_vector-1738673152641-46444697ed98?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2hpY2t8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600",
+    scratch_url: "https://scratch.mit.edu/projects/1226256601/",  
+  }
+  
 ];
 
 const App = () => {
