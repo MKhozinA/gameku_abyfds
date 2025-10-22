@@ -195,8 +195,7 @@ const gamesData = [
     kelas: "8 Putra",
     deskripsi:
       "Game Space War adalah game tembak-tembakan luar angkasa yang menantang pemain untuk mengalahkan musuh dan menghindari rintangan di galaksi yang penuh bahaya.",
-    thumbnail:
-      "/spacewar.png",
+    thumbnail: "/spacewar.png",
     scratch_url: "https://scratch.mit.edu/projects/1068175480",
   },
   {
@@ -296,7 +295,8 @@ const gamesData = [
     judul: "Flappy Fluttershy",
     pembuat: "Mahestri Marsya Yogasworo & Nashita Rania Farannisa",
     kelas: "8 Putri",
-    deskripsi: "Flappy Fluttershy adalah permainan yang mengharuskan pemainnya mengontrol seekor pony untuk melewati celah antara dua pipa yang datang dan tidak terbatas dengan ketinggian yang berbeda-beda tanpa menabraknya. Jika pony menabrak pipa-pipa itu, game akan selesai.",
+    deskripsi:
+      "Flappy Fluttershy adalah permainan yang mengharuskan pemainnya mengontrol seekor pony untuk melewati celah antara dua pipa yang datang dan tidak terbatas dengan ketinggian yang berbeda-beda tanpa menabraknya. Jika pony menabrak pipa-pipa itu, game akan selesai.",
     thumbnail: "/poster game flappy fluttershy.png",
     scratch_url: "https://scratch.mit.edu/projects/1071981618",
   },
@@ -307,10 +307,53 @@ const gamesData = [
     kelas: "8 Putri",
     deskripsi:
       "Game ini bernama jumping chick. Game ini bertujuan untuk membuat anak-anak dapat bertahan hidup di lingkungan sekitar.",
-    thumbnail: "https://plus.unsplash.com/premium_vector-1738673152641-46444697ed98?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2hpY2t8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600",
-    scratch_url: "https://scratch.mit.edu/projects/1226256601/",  
+    thumbnail:
+      "https://plus.unsplash.com/premium_vector-1738673152641-46444697ed98?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2hpY2t8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600",
+    scratch_url: "https://scratch.mit.edu/projects/1226256601/",
+  },
+  {
+    id: 30,
+    judul: "To The Moon",
+    pembuat: "Averroes Ahmad Alfaraby",
+    kelas: "8 Putra",
+    deskripsi: "Game balon dengan tujuan terbang menuju bulan",
+    thumbnail:
+      "https://plus.unsplash.com/premium_vector-1738763027941-9190327852e9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGJhbGxvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600",
+    scratch_url: "https://scratch.mit.edu/projects/1066637873",
+  },
+  {
+    id: 31,
+    judul: "Pong Game",
+    pembuat: "Muhammad Ghaisan",
+    kelas: "8 Putra",
+    deskripsi:
+      "Game ini adalah game pong yg ditemukan pada tahun 1972 oleh atari",
+    thumbnail:
+      "https://user-images.githubusercontent.com/2433219/94984423-03b57400-0509-11eb-91b0-974280cec0a2.png",
+    scratch_url: "https://scratch.mit.edu/projects/1075106065/",
+  },
+  {
+    id: 32,
+    judul: "Flappy Bird",
+    pembuat: "Mujadida Islamiya Azzahra",
+    kelas: "8 Putri",
+    deskripsi:
+      "menceritakan tentang seekor burung yang menghindari pipa agar tidak tertabrak, game ini memerlukan ketelitian dan juga kehati-hatian.",
+    thumbnail:
+      "/Group 1.png",
+    scratch_url: "https://scratch.mit.edu/projects/1072683796",
+  },
+  {
+    id: 33,
+    judul: "pingpong",
+    pembuat: "Azra Alma Yaffa Cahyono",
+    kelas: "8 Putri",
+    deskripsi:
+      "Game ini adalah game pingpong yang bertujuan mencetak angka sebanyak-banyaknya",
+    thumbnail:
+      "https://plus.unsplash.com/premium_vector-1718745383358-27c1d03149b0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBpbmdwb25nfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600",
+    scratch_url: "https://scratch.mit.edu/projects/1077254638",
   }
-  
 ];
 
 const App = () => {
