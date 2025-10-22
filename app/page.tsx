@@ -196,7 +196,7 @@ const gamesData = [
     deskripsi:
       "Game Space War adalah game tembak-tembakan luar angkasa yang menantang pemain untuk mengalahkan musuh dan menghindari rintangan di galaksi yang penuh bahaya.",
     thumbnail:
-      "https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjhlNzNhMzc3ZTc4ODE5MWI3ZjdkNGM0NGE3NjIyNjg6ZmlsZV8wMDAwMDAwMDQ0MDg2MWY0YTA0Mzk2MzBiYTYwZjc1MyIsInRzIjoiMjAzNzAiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6IjMyYmQwMGUyZjg4OGM4MmRiNjhkZjUzNjgxYjFmZjUyMjJiODNmMzc2NWE3YWY5ZGFiZGQ3YzgyNGNiNDdkZTgiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9",
+      "/spacewar.png",
     scratch_url: "https://scratch.mit.edu/projects/1068175480",
   },
   {
@@ -273,11 +273,11 @@ const gamesData = [
   },
   {
     id: 26,
-    judul: "Space Shooter",
+    judul: "Space Schooter",
     pembuat: "Alya Syadni Nafiza",
     kelas: "8 Putri",
     deskripsi:
-      "Game Ini Bernama Space Shooter Berupa Roket Yang Menembak Rintangan Menggunakan Bola. Yang Bermanfaat Untuk Melatih Koordinasi Motorik Dan Terbiasa Berpikir Cepat.",
+      "Game Ini Bernama Space Schooter Berupa Roket Yang Menembak Rintangan Menggunakan Bola. Yang Bermanfaat Untuk Melatih Koordinasi Motorik Dan Terbiasa Berpikir Cepat.",
     thumbnail: "/cover art space schooter.jpeg",
     scratch_url: "https://scratch.mit.edu/projects/1073727268",
   },
