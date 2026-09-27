@@ -1,5 +1,7 @@
+
 "use client";
-import React, { useState, useMemo } from "react";
+
+import React, { useMemo, useState } from "react";
 import {
   Search,
   Play,
@@ -10,385 +12,158 @@ import {
   Trophy,
   Users,
   Gamepad2,
+  ChevronDown,
+  Check,
+  RotateCcw,
 } from "lucide-react";
 
-// Mock data game
-const gamesData = [
-  {
-    id: 1,
-    judul: "BOAT GAME",
-    pembuat: "Abyan raufa sechan",
-    kelas: "8 Putra",
-    deskripsi: "Game petualangan sederhana menghindari rintangan.",
-    thumbnail:
-      "https://images.unsplash.com/vector-1740583325936-16651b4656d2?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    scratch_url: "https://scratch.mit.edu/projects/1069830827",
-  },
-  {
-    id: 2,
-    judul: "Fliyying cat copy copy",
-    pembuat: "Adhyastha Dimas Anargya",
-    kelas: "8 Putra",
-    deskripsi:
-      "Game kucing kalian harus melewati pipa besi dan jangan sampai kena pipanya nanti kalian kalah",
-    thumbnail:
-      "https://images.unsplash.com/vector-1744811048600-a17566c517b7?q=80&w=670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    scratch_url: "https://scratch.mit.edu/projects/1117072721",
-  },
-  {
-    id: 3,
-    judul: "Flappy Dragon",
-    pembuat: "Ahmad Hassan Al Banna",
-    kelas: "8 Putra",
-    deskripsi:
-      "Game naga kalian harus melewati pipa besi dan jangan sampai kena pipanya nanti kalian kalah",
-    thumbnail:
-      "https://plus.unsplash.com/premium_vector-1718713546137-dc86f3cc81d2?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    scratch_url: "https://scratch.mit.edu/projects/1066634609",
-  },
-  {
-    id: 4,
-    judul: "kamu siapa sigma male",
-    pembuat: "Azkarofif Valeska Syandana",
-    kelas: "8 Putra",
-    deskripsi:
-      "This game is about defeating the enemy and you can use power how to get power",
-    thumbnail:
-      "https://plus.unsplash.com/premium_vector-1726628612959-37abfcee1bc0?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    scratch_url: "https://scratch.mit.edu/projects/1066640826",
-  },
-  {
-    id: 5,
-    judul: "Untitled-5",
-    pembuat: "Fathan Ahza Haidar Rosyad",
-    kelas: "8 Putra",
-    deskripsi: "game nya boleh di coba di jamin seru",
-    thumbnail:
-      "https://plus.unsplash.com/premium_vector-1728668066383-5df5536e5def?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    scratch_url: "https://scratch.mit.edu/projects/1066638042",
-  },
-  {
-    id: 6,
-    judul: "Game Flappy Balloon",
-    pembuat: "Haikal Mufid",
-    kelas: "8 Putra",
-    deskripsi:
-      "Game Balon kalian harus melewati pipa besi dan jangan sampai kena pipanya nanti kalian kalah",
-    thumbnail:
-      "https://plus.unsplash.com/premium_vector-1736229110669-34f023db1a9f?q=80&w=601&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    scratch_url: "https://scratch.mit.edu/projects/1065509601",
-  },
-  {
-    id: 7,
-    judul: "Perkenalan Scratch copy",
-    pembuat: "Krishna Batistuta Yusuf",
-    kelas: "8 Putra",
-    deskripsi: "Game Perkenalan Scratch",
-    thumbnail:
-      "https://images.unsplash.com/vector-1745685857535-dfcece8b908b?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    scratch_url: "https://scratch.mit.edu/projects/1059847033",
-  },
-  {
-    id: 8,
-    judul: "ESCAPE THE MAZE",
-    pembuat: "Muhammad 'Aufa Ibadurrahman",
-    kelas: "8 Putra",
-    deskripsi: "Game petualangan luar angkasa dengan rintangan menarik.",
-    thumbnail:
-      "https://plus.unsplash.com/premium_vector-1682300804998-fec69bb449c3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    scratch_url: "https://scratch.mit.edu/projects/1220821975",
-  },
-  {
-    id: 9,
-    judul: "Zombie Apocalypse",
-    pembuat: "Muhammad Azka Rifqy El-Farras",
-    kelas: "8 Putra",
-    deskripsi: "Game tembak zombie.",
-    thumbnail:
-      "https://plus.unsplash.com/premium_vector-1711987886030-c2eb0a44b37d?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    scratch_url: "https://scratch.mit.edu/projects/1071934221",
-  },
-  {
-    id: 10,
-    judul: "Let's Survive!",
-    pembuat: "Muhammad Fathan Fawwaz Mumtaza",
-    kelas: "8 Putra",
-    deskripsi: "Jangan Sampai Mati,Bunuh Zombie Sebanyak-banyaknya",
-    thumbnail:
-      "https://images.unsplash.com/vector-1744772732051-89e80c9f152f?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    scratch_url: "https://scratch.mit.edu/projects/1073744054",
-  },
-  {
-    id: 11,
-    judul: "GAME PENALTY",
-    pembuat: "Muhammad Taqi Khairul Azzam",
-    kelas: "8 Putra",
-    deskripsi: "Game menendang bola ke gawang.",
-    thumbnail:
-      "https://plus.unsplash.com/premium_vector-1719407209480-b8861d9bc529?q=80&w=953&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    scratch_url: "https://scratch.mit.edu/projects/1071932695/",
-  },
-  {
-    id: 12,
-    judul: "Easy Maze",
-    pembuat: "Quthbie Almairi Tsaqieb",
-    kelas: "8 Putra",
-    deskripsi: "Game cari jalan keluar dari labirin.",
-    thumbnail:
-      "https://plus.unsplash.com/premium_vector-1682300807192-2bc7bf985a57?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    scratch_url: "https://scratch.mit.edu/projects/1215586092",
-  },
-  {
-    id: 13,
-    judul: "Flapy Bird",
-    pembuat: "Zidan Alvaro Sulistyo",
-    kelas: "8 Putra",
-    deskripsi: "Game burung melewati pipa.",
-    thumbnail:
-      "https://plus.unsplash.com/premium_vector-1715632451165-87c3a13df4c1?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    scratch_url: "https://scratch.mit.edu/projects/1069829223",
-  },
-  {
-    id: 14,
-    judul: "Soccer Game",
-    pembuat: "Aisyah Nur Hasna & Alya Fauzia Azzahra",
-    kelas: "8 Putri",
-    deskripsi: "Animasi sepak bola sederhana.",
-    thumbnail:
-      "https://plus.unsplash.com/premium_vector-1717007595610-b18c8af7b8a6?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    scratch_url: "https://scratch.mit.edu/projects/1217901159",
-  },
-  {
-    id: 15,
-    judul: "Boboiboy Game",
-    pembuat: "Husna Dzakiyyah & Kayla Salsabila",
-    kelas: "8 Putri",
-    deskripsi:
-      "Game ini adalah game menangkap buah buah yang jatuh. Ada dua buah yang harus ditangkap,yaitu buah jeruk dan strawberry. Game ini melatih kecepatan, ketelitian, dan strategi, karena suatu saat posisi buah jatuh tidak menentu dan jika buah mengenai garis merah maka skor akan mengulang dari awal.",
-    thumbnail: "/BOBOIBOY GAME thumbnail.png",
-    scratch_url: "https://scratch.mit.edu/projects/1209811863",
-  },
-  {
-    id: 16,
-    judul: "Space Ship game",
-    pembuat: "Brian/brilliantrmn",
-    kelas: "8 Putra",
-    deskripsi: "Game tembak batu.",
-    thumbnail:
-      "https://plus.unsplash.com/premium_vector-1721478854284-60b9336483d9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c3BhY2VzaGlwfGVufDB8fDB8fHww",
-    scratch_url: "https://scratch.mit.edu/projects/1075804143",
-  },
-  {
-    id: 17,
-    judul: "White Square's Generic Platformer Voyage",
-    pembuat: "Faiz Abqari Nugroho",
-    kelas: "8 Putra",
-    deskripsi: "This game has eight stages. It's pretty short.",
-    thumbnail:
-      "https://plus.unsplash.com/premium_vector-1750347148884-c64e1412e6f1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGN1YmV8ZW58MHx8MHx8fDA%3D",
-    scratch_url: "https://scratch.mit.edu/projects/1068807951",
-  },
-  {
-    id: 18,
-    judul: "Space War",
-    pembuat: "Hafizh Ar Rayyan P.",
-    kelas: "8 Putra",
-    deskripsi:
-      "Game Space War adalah game tembak-tembakan luar angkasa yang menantang pemain untuk mengalahkan musuh dan menghindari rintangan di galaksi yang penuh bahaya.",
-    thumbnail: "/spacewar.png",
-    scratch_url: "https://scratch.mit.edu/projects/1068175480",
-  },
-  {
-    id: 19,
-    judul: "SNAKE GAME",
-    pembuat: "Abdullah Farras An Naufal",
-    kelas: "8 Putra",
-    deskripsi:
-      "Game SNAKE adalah game klasik di mana pemain mengendalikan ular yang tumbuh lebih panjang saat memakan makanan, sambil menghindari tabrakan dengan dinding dan dirinya sendiri.",
-    thumbnail:
-      "https://plus.unsplash.com/premium_vector-1689096751455-ceb88f7a71ae?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c25ha2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600",
-    scratch_url: "https://scratch.mit.edu/projects/1221162551",
-  },
-  {
-    id: 20,
-    judul: "Backroom 1.3",
-    pembuat: "Danendra Bilfaqih Wahyudi",
-    kelas: "8 Putra",
-    deskripsi:
-      "Game menjelajahi ruangan tak berujung dengan suasana menegangkan.",
-    thumbnail:
-      "https://plus.unsplash.com/premium_vector-1744086369212-749430471d77?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZW1wdHklMjByb29tfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600",
-    scratch_url: "https://scratch.mit.edu/projects/1066634193",
-  },
-  {
-    id: 21,
-    judul: "EAT the fish",
-    pembuat: "Faaris Abdillah AN",
-    kelas: "8 Putra",
-    deskripsi: "Makan ikan dan hindari ikan buntal",
-    thumbnail:
-      "https://plus.unsplash.com/premium_vector-1746271200126-a3d8d152a8a7?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hhcmt8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600",
-    scratch_url: "https://scratch.mit.edu/projects/1223978781/",
-  },
-  {
-    id: 22,
-    judul: "Space Adventure",
-    pembuat: "Ghaisan Avicenna Fatihul Ichsan",
-    kelas: "8 Putra",
-    deskripsi: "Game petualangan luar angkasa dengan rintangan menarik.",
-    thumbnail:
-      "https://plus.unsplash.com/premium_vector-1721294461083-da2763b727a3?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cm9ja2V0fGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600",
-    scratch_url: "https://scratch.mit.edu/projects/1078125412",
-  },
-  {
-    id: 23,
-    judul: "menangkap kucing",
-    pembuat: "falin salisa",
-    kelas: "8 Putri",
-    deskripsi:
-      "jadi ada 2 kucing yang harus di tangkap sampe jatuh ke warna merah nanti mati",
-    thumbnail:
-      "https://i.pinimg.com/736x/af/dc/c1/afdcc122aa1e38f11bf4f666e4eb197c.jpg",
-    scratch_url: "https://scratch.mit.edu/projects/1226256439/",
-  },
-  {
-    id: 24,
-    judul: "Eat The Fish",
-    pembuat: "Devin Ahmad Dipanegara",
-    kelas: "8 Putra",
-    deskripsi: "Makan ikan dan hindari ikan buntal",
-    thumbnail:
-      "https://plus.unsplash.com/premium_vector-1732776846959-6b24258ecb72?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNoYXJrfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600",
-    scratch_url: "https://scratch.mit.edu/projects/1058126666",
-  },
-  {
-    id: 25,
-    judul: "survival zombie",
-    pembuat: "Muhammad Hanif Ibadurrahman",
-    kelas: "8 Putra",
-    deskripsi: "Bertahan dari zombie",
-    thumbnail: "/Picture1.png",
-    scratch_url: "https://scratch.mit.edu/projects/1069830827",
-  },
-  {
-    id: 26,
-    judul: "Space Schooter",
-    pembuat: "Alya Syadni Nafiza",
-    kelas: "8 Putri",
-    deskripsi:
-      "Game Ini Bernama Space Schooter Berupa Roket Yang Menembak Rintangan Menggunakan Bola. Yang Bermanfaat Untuk Melatih Koordinasi Motorik Dan Terbiasa Berpikir Cepat.",
-    thumbnail: "/cover art space schooter.jpeg",
-    scratch_url: "https://scratch.mit.edu/projects/1073727268",
-  },
-  {
-    id: 27,
-    judul: "Car",
-    pembuat: "Raihan Kamil Widadi",
-    kelas: "8 Putra",
-    deskripsi:
-      "Game menghindari mobil agar mobil yang pemain kendarai tidak tertabrak",
-    thumbnail: "/car.png",
-    scratch_url: "https://scratch.mit.edu/projects/1231988572/",
-  },
-  {
-    id: 28,
-    judul: "Flappy Fluttershy",
-    pembuat: "Mahestri Marsya Yogasworo & Nashita Rania Farannisa",
-    kelas: "8 Putri",
-    deskripsi:
-      "Flappy Fluttershy adalah permainan yang mengharuskan pemainnya mengontrol seekor pony untuk melewati celah antara dua pipa yang datang dan tidak terbatas dengan ketinggian yang berbeda-beda tanpa menabraknya. Jika pony menabrak pipa-pipa itu, game akan selesai.",
-    thumbnail: "/poster game flappy fluttershy.png",
-    scratch_url: "https://scratch.mit.edu/projects/1071981618",
-  },
-  {
-    id: 29,
-    judul: "jumping chick",
-    pembuat: " Shakela Afiqah Wijaya",
-    kelas: "8 Putri",
-    deskripsi:
-      "Game ini bernama jumping chick. Game ini bertujuan untuk membuat anak-anak dapat bertahan hidup di lingkungan sekitar.",
-    thumbnail:
-      "https://plus.unsplash.com/premium_vector-1738673152641-46444697ed98?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2hpY2t8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600",
-    scratch_url: "https://scratch.mit.edu/projects/1226256601/",
-  },
-  {
-    id: 30,
-    judul: "To The Moon",
-    pembuat: "Averroes Ahmad Alfaraby",
-    kelas: "8 Putra",
-    deskripsi: "Game balon dengan tujuan terbang menuju bulan",
-    thumbnail:
-      "https://plus.unsplash.com/premium_vector-1738763027941-9190327852e9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGJhbGxvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600",
-    scratch_url: "https://scratch.mit.edu/projects/1066637873",
-  },
-  {
-    id: 31,
-    judul: "Pong Game",
-    pembuat: "Muhammad Ghaisan",
-    kelas: "8 Putra",
-    deskripsi:
-      "Game ini adalah game pong yg ditemukan pada tahun 1972 oleh atari",
-    thumbnail:
-      "https://user-images.githubusercontent.com/2433219/94984423-03b57400-0509-11eb-91b0-974280cec0a2.png",
-    scratch_url: "https://scratch.mit.edu/projects/1075106065/",
-  },
-  {
-    id: 32,
-    judul: "Flappy Bird",
-    pembuat: "Mujadida Islamiya Azzahra",
-    kelas: "8 Putri",
-    deskripsi:
-      "menceritakan tentang seekor burung yang menghindari pipa agar tidak tertabrak, game ini memerlukan ketelitian dan juga kehati-hatian.",
-    thumbnail:
-      "/Group 1.png",
-    scratch_url: "https://scratch.mit.edu/projects/1072683796",
-  },
-  {
-    id: 33,
-    judul: "pingpong",
-    pembuat: "Azra Alma Yaffa Cahyono",
-    kelas: "8 Putri",
-    deskripsi:
-      "Game ini adalah game pingpong yang bertujuan mencetak angka sebanyak-banyaknya",
-    thumbnail:
-      "https://plus.unsplash.com/premium_vector-1718745383358-27c1d03149b0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBpbmdwb25nfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600",
-    scratch_url: "https://scratch.mit.edu/projects/1077254638",
-  }
-];
+import { gamesData } from "@/app/data/games";
 
-const App = () => {
+const GameGallery = () => {
+  // ==========================================
+  // STATE
+  // ==========================================
+
   const [darkMode, setDarkMode] = useState(false);
+
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedClass, setSelectedClass] = useState("all");
 
-  const classes = [
-    "all",
-    "7 Putra",
-    "7 Putri",
-    "8 Putra",
-    "8 Putri",
-    "9 Putra",
-    "9 Putri",
-  ];
+  const [selectedAngkatan, setSelectedAngkatan] =
+    useState("all");
 
-  // Filter games
+  const [selectedCategories, setSelectedCategories] =
+    useState<string[]>([]);
+
+  const [isAngkatanOpen, setIsAngkatanOpen] =
+    useState(false);
+
+  const [isCategoryOpen, setIsCategoryOpen] =
+    useState(false);
+
+  // ==========================================
+  // FILTER OPTIONS
+  // ==========================================
+
+  const angkatanOptions = useMemo(() => {
+    return [
+      "all",
+      ...Array.from(
+        new Set(
+          gamesData.map((game) => game.angkatan)
+        )
+      ).sort(),
+    ];
+  }, []);
+
+  const categoryOptions = useMemo(() => {
+    return Array.from(
+      new Set(
+        gamesData.flatMap((game) => game.kategori)
+      )
+    ).sort();
+  }, []);
+
+  // ==========================================
+  // TOGGLE CATEGORY
+  // ==========================================
+
+  const toggleCategory = (category: string) => {
+    setSelectedCategories((prev) =>
+      prev.includes(category)
+        ? prev.filter((item) => item !== category)
+        : [...prev, category]
+    );
+  };
+
+  // ==========================================
+  // RESET FILTER
+  // ==========================================
+
+  const resetFilters = () => {
+    setSearchQuery("");
+    setSelectedAngkatan("all");
+    setSelectedCategories([]);
+    setIsAngkatanOpen(false);
+    setIsCategoryOpen(false);
+  };
+
+  // ==========================================
+  // FILTER GAMES
+  // ==========================================
+
   const filteredGames = useMemo(() => {
     return gamesData.filter((game) => {
-      const matchesSearch =
-        game.judul.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        game.pembuat.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesClass =
-        selectedClass === "all" || game.kelas === selectedClass;
-      return matchesSearch && matchesClass;
-    });
-  }, [searchQuery, selectedClass]);
+      const keyword = searchQuery.toLowerCase();
 
-  // Statistics
+      const matchesSearch =
+        game.judul.toLowerCase().includes(keyword) ||
+        game.pembuat.toLowerCase().includes(keyword);
+
+      const matchesAngkatan =
+        selectedAngkatan === "all" ||
+        game.angkatan === selectedAngkatan;
+
+      const matchesCategory =
+        selectedCategories.length === 0 ||
+        selectedCategories.some((category) =>
+          game.kategori.includes(category)
+        );
+
+      return (
+        matchesSearch &&
+        matchesAngkatan &&
+        matchesCategory
+      );
+    });
+  }, [
+    searchQuery,
+    selectedAngkatan,
+    selectedCategories,
+  ]);
+
+  // ==========================================
+  // STATISTICS
+  // ==========================================
+
   const stats = {
     totalGames: gamesData.length,
-    totalStudents: new Set(gamesData.map((g) => g.pembuat)).size,
-    totalClasses: new Set(gamesData.map((g) => g.kelas)).size,
+
+    totalStudents: new Set(
+      gamesData.map((game) => game.pembuat)
+    ).size,
+
+    totalAngkatan: new Set(
+      gamesData.map((game) => game.angkatan)
+    ).size,
   };
+
+  // ==========================================
+  // THEME COLORS
+  // ==========================================
+
+  const cardBackground = darkMode
+    ? "bg-gray-800"
+    : "bg-white";
+
+  const primaryText = darkMode
+    ? "text-white"
+    : "text-gray-900";
+
+  const secondaryText = darkMode
+    ? "text-gray-400"
+    : "text-gray-600";
+
+  const borderColor = darkMode
+    ? "border-gray-700"
+    : "border-gray-200";
+
+  const inputBackground = darkMode
+    ? "bg-gray-900"
+    : "bg-white";
+
+  // ==========================================
+  // RENDER
+  // ==========================================
 
   return (
     <div
@@ -398,45 +173,52 @@ const App = () => {
           : "bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"
       }`}
     >
-      {/* Header */}
+      {/* ======================================
+          HEADER
+      ====================================== */}
+
       <header
-        className={`sticky top-0 z-40 backdrop-blur-lg border-b ${
+        className={`sticky top-0 z-40 border-b backdrop-blur-lg ${
           darkMode
             ? "bg-gray-800/90 border-gray-700"
             : "bg-white/90 border-gray-200"
         }`}
       >
         <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
+          <div className="flex items-center justify-between gap-4">
+            {/* Logo & Title */}
+            <div className="flex items-center gap-3 min-w-0">
               <div
-                className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                  darkMode ? "bg-indigo-600" : "bg-indigo-500"
+                className={`w-12 h-12 shrink-0 rounded-xl flex items-center justify-center ${
+                  darkMode
+                    ? "bg-indigo-600"
+                    : "bg-indigo-500"
                 }`}
               >
                 <Gamepad2 className="w-7 h-7 text-white" />
               </div>
-              <div>
+
+              <div className="min-w-0">
                 <h1
-                  className={`text-2xl font-bold ${
-                    darkMode ? "text-white" : "text-gray-900"
-                  }`}
+                  className={`text-xl sm:text-2xl font-bold truncate ${primaryText}`}
                 >
                   Galeri Game Siswa
                 </h1>
+
                 <p
-                  className={`text-sm ${
-                    darkMode ? "text-gray-400" : "text-gray-600"
-                  }`}
+                  className={`text-sm ${secondaryText}`}
                 >
                   Karya Scratch Terbaik
                 </p>
               </div>
             </div>
 
+            {/* Dark Mode Button */}
             <button
+              type="button"
               onClick={() => setDarkMode(!darkMode)}
-              className={`p-2 rounded-lg transition-colors ${
+              aria-label="Ubah mode tampilan"
+              className={`p-2.5 rounded-xl transition-colors shrink-0 ${
                 darkMode
                   ? "bg-gray-700 hover:bg-gray-600 text-yellow-400"
                   : "bg-gray-100 hover:bg-gray-200 text-gray-700"
@@ -452,30 +234,28 @@ const App = () => {
         </div>
       </header>
 
-      {/* Stats Section */}
+      {/* ======================================
+          STATISTICS SECTION
+      ====================================== */}
+
       <section className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {/* Total Game */}
           <div
-            className={`p-6 rounded-2xl ${
-              darkMode ? "bg-gray-800" : "bg-white"
-            } shadow-lg`}
+            className={`p-5 sm:p-6 rounded-2xl shadow-lg ${cardBackground}`}
           >
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
+              <div className="w-12 h-12 shrink-0 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
                 <Gamepad2 className="w-6 h-6 text-white" />
               </div>
+
               <div>
-                <p
-                  className={`text-sm ${
-                    darkMode ? "text-gray-400" : "text-gray-600"
-                  }`}
-                >
+                <p className={`text-sm ${secondaryText}`}>
                   Total Game
                 </p>
+
                 <p
-                  className={`text-2xl font-bold ${
-                    darkMode ? "text-white" : "text-gray-900"
-                  }`}
+                  className={`text-2xl font-bold ${primaryText}`}
                 >
                   {stats.totalGames}
                 </p>
@@ -483,27 +263,22 @@ const App = () => {
             </div>
           </div>
 
+          {/* Total Pembuat */}
           <div
-            className={`p-6 rounded-2xl ${
-              darkMode ? "bg-gray-800" : "bg-white"
-            } shadow-lg`}
+            className={`p-5 sm:p-6 rounded-2xl shadow-lg ${cardBackground}`}
           >
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center">
+              <div className="w-12 h-12 shrink-0 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center">
                 <Users className="w-6 h-6 text-white" />
               </div>
+
               <div>
-                <p
-                  className={`text-sm ${
-                    darkMode ? "text-gray-400" : "text-gray-600"
-                  }`}
-                >
+                <p className={`text-sm ${secondaryText}`}>
                   Pembuat
                 </p>
+
                 <p
-                  className={`text-2xl font-bold ${
-                    darkMode ? "text-white" : "text-gray-900"
-                  }`}
+                  className={`text-2xl font-bold ${primaryText}`}
                 >
                   {stats.totalStudents}
                 </p>
@@ -511,29 +286,24 @@ const App = () => {
             </div>
           </div>
 
+          {/* Total Angkatan */}
           <div
-            className={`p-6 rounded-2xl ${
-              darkMode ? "bg-gray-800" : "bg-white"
-            } shadow-lg`}
+            className={`p-5 sm:p-6 rounded-2xl shadow-lg ${cardBackground}`}
           >
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
+              <div className="w-12 h-12 shrink-0 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
                 <Trophy className="w-6 h-6 text-white" />
               </div>
+
               <div>
-                <p
-                  className={`text-sm ${
-                    darkMode ? "text-gray-400" : "text-gray-600"
-                  }`}
-                >
-                  Kelas Aktif
+                <p className={`text-sm ${secondaryText}`}>
+                  Angkatan Aktif
                 </p>
+
                 <p
-                  className={`text-2xl font-bold ${
-                    darkMode ? "text-white" : "text-gray-900"
-                  }`}
+                  className={`text-2xl font-bold ${primaryText}`}
                 >
-                  {stats.totalClasses}
+                  {stats.totalAngkatan}
                 </p>
               </div>
             </div>
@@ -541,97 +311,418 @@ const App = () => {
         </div>
       </section>
 
-      {/* Filter Section */}
+      {/* ======================================
+          FILTER SECTION
+      ====================================== */}
+
       <section className="container mx-auto px-4 py-6">
-        <div className="flex flex-col md:flex-row gap-4">
+        <div
+          className={`rounded-2xl border p-4 sm:p-5 shadow-sm ${
+            darkMode
+              ? "bg-gray-800/80 border-gray-700"
+              : "bg-white/80 border-gray-200"
+          }`}
+        >
           {/* Search Bar */}
-          <div className="flex-1 relative">
+          <div className="relative mb-5">
             <Search
               className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 ${
-                darkMode ? "text-gray-400" : "text-gray-500"
+                darkMode
+                  ? "text-gray-400"
+                  : "text-gray-500"
               }`}
             />
+
             <input
               type="text"
               placeholder="Cari judul game atau nama pembuat..."
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className={`w-full pl-12 pr-4 py-3 rounded-xl border-2 transition-all ${
+              onChange={(e) =>
+                setSearchQuery(e.target.value)
+              }
+              className={`w-full pl-12 pr-4 py-3 rounded-xl border-2 transition-all ${inputBackground} ${
                 darkMode
-                  ? "bg-gray-800 border-gray-700 text-white placeholder-gray-500 focus:border-indigo-500"
-                  : "bg-white border-gray-200 text-gray-900 placeholder-gray-400 focus:border-indigo-500"
+                  ? "border-gray-700 text-white placeholder-gray-500 focus:border-indigo-500"
+                  : "border-gray-200 text-gray-900 placeholder-gray-400 focus:border-indigo-500"
               } focus:outline-none`}
             />
           </div>
 
-          {/* Class Filter */}
-          <div className="relative">
-            <Filter
-              className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 ${
-                darkMode ? "text-gray-400" : "text-gray-500"
-              }`}
-            />
-            <select
-              value={selectedClass}
-              onChange={(e) => setSelectedClass(e.target.value)}
-              className={`pl-12 pr-8 py-3 rounded-xl border-2 transition-all appearance-none cursor-pointer ${
-                darkMode
-                  ? "bg-gray-800 border-gray-700 text-white focus:border-indigo-500"
-                  : "bg-white border-gray-200 text-gray-900 focus:border-indigo-500"
-              } focus:outline-none`}
-            >
-              {classes.map((cls) => (
-                <option key={cls} value={cls}>
-                  {cls === "all" ? "Semua Kelas" : `Kelas ${cls}`}
-                </option>
+          {/* Filter Header */}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+            <div className="flex items-center gap-2">
+              <Filter
+                className={`w-5 h-5 ${
+                  darkMode
+                    ? "text-gray-300"
+                    : "text-gray-600"
+                }`}
+              />
+
+              <h3
+                className={`font-semibold ${primaryText}`}
+              >
+                Filter Game
+              </h3>
+            </div>
+
+            {(selectedAngkatan !== "all" ||
+              selectedCategories.length > 0 ||
+              searchQuery.length > 0) && (
+              <button
+                type="button"
+                onClick={resetFilters}
+                className={`flex items-center gap-1.5 text-sm font-medium transition-colors ${
+                  darkMode
+                    ? "text-indigo-400 hover:text-indigo-300"
+                    : "text-indigo-600 hover:text-indigo-700"
+                }`}
+              >
+                <RotateCcw className="w-4 h-4" />
+                Reset Filter
+              </button>
+            )}
+          </div>
+
+          {/* Filter Options */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* ==================================
+                ANGKATAN FILTER
+            ================================== */}
+
+            <div className="relative">
+              <label
+                className={`block text-sm font-medium mb-2 ${primaryText}`}
+              >
+                Angkatan
+              </label>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setIsAngkatanOpen(!isAngkatanOpen);
+                  setIsCategoryOpen(false);
+                }}
+                className={`w-full flex items-center justify-between gap-3 px-4 py-3 rounded-xl border-2 text-left transition-all ${
+                  darkMode
+                    ? "bg-gray-900 border-gray-700 text-white hover:border-indigo-500"
+                    : "bg-white border-gray-200 text-gray-800 hover:border-indigo-500"
+                }`}
+              >
+                <span className="truncate">
+                  {selectedAngkatan === "all"
+                    ? "Semua Angkatan"
+                    : selectedAngkatan}
+                </span>
+
+                <ChevronDown
+                  className={`w-5 h-5 shrink-0 transition-transform ${
+                    isAngkatanOpen
+                      ? "rotate-180"
+                      : ""
+                  }`}
+                />
+              </button>
+
+              {isAngkatanOpen && (
+                <div
+                  className={`absolute z-30 top-full left-0 right-0 mt-2 p-2 rounded-xl border shadow-xl ${
+                    darkMode
+                      ? "bg-gray-800 border-gray-700"
+                      : "bg-white border-gray-200"
+                  }`}
+                >
+                  {angkatanOptions.map((angkatan) => {
+                    const isSelected =
+                      selectedAngkatan === angkatan;
+
+                    return (
+                      <button
+                        key={angkatan}
+                        type="button"
+                        onClick={() => {
+                          setSelectedAngkatan(
+                            angkatan
+                          );
+                          setIsAngkatanOpen(false);
+                        }}
+                        className={`w-full flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg text-sm text-left transition-colors ${
+                          isSelected
+                            ? darkMode
+                              ? "bg-indigo-900/60 text-indigo-300"
+                              : "bg-indigo-50 text-indigo-700"
+                            : darkMode
+                              ? "text-gray-200 hover:bg-gray-700"
+                              : "text-gray-700 hover:bg-gray-100"
+                        }`}
+                      >
+                        <span>
+                          {angkatan === "all"
+                            ? "Semua Angkatan"
+                            : angkatan}
+                        </span>
+
+                        {isSelected && (
+                          <Check className="w-4 h-4 shrink-0" />
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
+            {/* ==================================
+                CATEGORY FILTER
+            ================================== */}
+
+            <div className="relative">
+              <label
+                className={`block text-sm font-medium mb-2 ${primaryText}`}
+              >
+                Kategori Game
+              </label>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setIsCategoryOpen(!isCategoryOpen);
+                  setIsAngkatanOpen(false);
+                }}
+                className={`w-full flex items-center justify-between gap-3 px-4 py-3 rounded-xl border-2 text-left transition-all ${
+                  darkMode
+                    ? "bg-gray-900 border-gray-700 text-white hover:border-indigo-500"
+                    : "bg-white border-gray-200 text-gray-800 hover:border-indigo-500"
+                }`}
+              >
+                <span className="truncate">
+                  {selectedCategories.length === 0
+                    ? "Semua Kategori"
+                    : `${selectedCategories.length} kategori dipilih`}
+                </span>
+
+                <ChevronDown
+                  className={`w-5 h-5 shrink-0 transition-transform ${
+                    isCategoryOpen
+                      ? "rotate-180"
+                      : ""
+                  }`}
+                />
+              </button>
+
+              {isCategoryOpen && (
+                <div
+                  className={`absolute z-30 top-full left-0 right-0 mt-2 p-3 rounded-xl border shadow-xl ${
+                    darkMode
+                      ? "bg-gray-800 border-gray-700"
+                      : "bg-white border-gray-200"
+                  }`}
+                >
+                  {/* Category Pills */}
+                  <div className="flex flex-wrap gap-2">
+                    {categoryOptions.map((category) => {
+                      const isSelected =
+                        selectedCategories.includes(
+                          category
+                        );
+
+                      return (
+                        <button
+                          key={category}
+                          type="button"
+                          onClick={() =>
+                            toggleCategory(category)
+                          }
+                          className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-full border text-xs sm:text-sm font-medium transition-all ${
+                            isSelected
+                              ? "bg-indigo-600 border-indigo-600 text-white"
+                              : darkMode
+                                ? "bg-gray-900 border-gray-600 text-gray-300 hover:border-indigo-500 hover:text-indigo-300"
+                                : "bg-gray-50 border-gray-200 text-gray-700 hover:border-indigo-400 hover:text-indigo-600"
+                          }`}
+                        >
+                          {isSelected && (
+                            <Check className="w-3.5 h-3.5" />
+                          )}
+
+                          {category}
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  {/* Category Footer */}
+                  <div
+                    className={`flex items-center justify-between gap-3 mt-3 pt-3 border-t ${
+                      darkMode
+                        ? "border-gray-700"
+                        : "border-gray-200"
+                    }`}
+                  >
+                    <span
+                      className={`text-xs ${
+                        darkMode
+                          ? "text-gray-400"
+                          : "text-gray-500"
+                      }`}
+                    >
+                      {selectedCategories.length === 0
+                        ? "Semua kategori aktif"
+                        : `${selectedCategories.length} kategori dipilih`}
+                    </span>
+
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setSelectedCategories([])
+                      }
+                      className={`text-xs font-semibold ${
+                        darkMode
+                          ? "text-indigo-400 hover:text-indigo-300"
+                          : "text-indigo-600 hover:text-indigo-700"
+                      }`}
+                    >
+                      Hapus Pilihan
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Active Category Tags */}
+          {selectedCategories.length > 0 && (
+            <div className="flex flex-wrap items-center gap-2 mt-4">
+              <span
+                className={`text-xs font-medium ${
+                  darkMode
+                    ? "text-gray-400"
+                    : "text-gray-500"
+                }`}
+              >
+                Filter aktif:
+              </span>
+
+              {selectedCategories.map((category) => (
+                <button
+                  key={category}
+                  type="button"
+                  onClick={() => toggleCategory(category)}
+                  className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium ${
+                    darkMode
+                      ? "bg-indigo-900/60 text-indigo-300"
+                      : "bg-indigo-100 text-indigo-700"
+                  }`}
+                >
+                  {category}
+
+                  <X className="w-3 h-3" />
+                </button>
               ))}
-            </select>
-          </div>
-        </div>
+            </div>
+          )}
 
-        {/* Results Count */}
-        <p
-          className={`mt-4 text-sm ${
-            darkMode ? "text-gray-400" : "text-gray-600"
-          }`}
-        >
-          Menampilkan{" "}
-          <span className="font-semibold">{filteredGames.length}</span> game
-        </p>
+          {/* Active Angkatan Tag */}
+          {selectedAngkatan !== "all" && (
+            <div className="flex flex-wrap items-center gap-2 mt-3">
+              <span
+                className={`text-xs font-medium ${
+                  darkMode
+                    ? "text-gray-400"
+                    : "text-gray-500"
+                }`}
+              >
+                Angkatan aktif:
+              </span>
+
+              <button
+                type="button"
+                onClick={() =>
+                  setSelectedAngkatan("all")
+                }
+                className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium ${
+                  darkMode
+                    ? "bg-purple-900/60 text-purple-300"
+                    : "bg-purple-100 text-purple-700"
+                }`}
+              >
+                {selectedAngkatan}
+
+                <X className="w-3 h-3" />
+              </button>
+            </div>
+          )}
+
+          {/* Results Count */}
+          <p
+            className={`mt-4 text-sm ${secondaryText}`}
+          >
+            Menampilkan{" "}
+            <span className="font-semibold">
+              {filteredGames.length}
+            </span>{" "}
+            game
+          </p>
+        </div>
       </section>
 
-      {/* Game Gallery */}
+      {/* ======================================
+          GAME GALLERY
+      ====================================== */}
+
       <section className="container mx-auto px-4 pb-12">
         {filteredGames.length === 0 ? (
           <div
-            className={`text-center py-20 ${
-              darkMode ? "text-gray-400" : "text-gray-600"
-            }`}
+            className={`text-center py-20 ${secondaryText}`}
           >
             <Gamepad2 className="w-16 h-16 mx-auto mb-4 opacity-50" />
-            <p className="text-lg">Tidak ada game yang ditemukan</p>
+
+            <p className="text-lg font-medium">
+              Tidak ada game yang ditemukan
+            </p>
+
+            <p className="text-sm mt-2">
+              Coba ubah kata kunci atau filter game.
+            </p>
+
+            <button
+              type="button"
+              onClick={resetFilters}
+              className="mt-5 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold transition-colors"
+            >
+              <RotateCcw className="w-4 h-4" />
+              Reset Filter
+            </button>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredGames.map((game) => (
               <div
                 key={game.id}
-                className={`group rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ${
-                  darkMode ? "bg-gray-800" : "bg-white"
-                }`}
+                className={`group rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ${cardBackground}`}
               >
                 {/* Thumbnail */}
                 <div className="relative aspect-video overflow-hidden">
                   <img
                     src={game.thumbnail}
                     alt={game.judul}
+                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />
+
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                   {/* Play Button Overlay */}
                   <button
-                    onClick={() => window.open(game.scratch_url, "_blank")}
+                    type="button"
+                    onClick={() =>
+                      window.open(
+                        game.scratch_url,
+                        "_blank",
+                        "noopener,noreferrer"
+                      )
+                    }
+                    aria-label={`Mainkan ${game.judul}`}
                     className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   >
                     <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center transform scale-90 group-hover:scale-100 transition-transform">
@@ -643,24 +734,26 @@ const App = () => {
                   </button>
                 </div>
 
-                {/* Content */}
+                {/* Card Content */}
                 <div className="p-5">
+                  {/* Game Title */}
                   <h3
-                    className={`text-xl font-bold mb-2 ${
-                      darkMode ? "text-white" : "text-gray-900"
-                    }`}
+                    className={`text-xl font-bold mb-2 line-clamp-2 ${primaryText}`}
                   >
                     {game.judul}
                   </h3>
 
-                  <div className="flex items-center gap-2 mb-3">
+                  {/* Creator & Angkatan */}
+                  <div className="flex flex-wrap items-center gap-2 mb-3">
                     <span
-                      className={`text-sm ${
-                        darkMode ? "text-gray-400" : "text-gray-600"
-                      }`}
+                      className={`text-sm ${secondaryText}`}
                     >
-                      oleh <span className="font-semibold">{game.pembuat}</span>
+                      oleh{" "}
+                      <span className="font-semibold">
+                        {game.pembuat}
+                      </span>
                     </span>
+
                     <span
                       className={`px-2 py-1 rounded-lg text-xs font-semibold ${
                         darkMode
@@ -668,23 +761,50 @@ const App = () => {
                           : "bg-indigo-100 text-indigo-700"
                       }`}
                     >
-                      {game.kelas}
+                      {game.angkatan}
                     </span>
                   </div>
 
+                  {/* Categories */}
+                  <div className="flex flex-wrap gap-1.5 mb-3">
+                    {game.kategori.map((category) => (
+                      <span
+                        key={category}
+                        className={`px-2 py-1 rounded-md text-xs font-medium ${
+                          darkMode
+                            ? "bg-gray-700 text-gray-300"
+                            : "bg-gray-100 text-gray-600"
+                        }`}
+                      >
+                        {category}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Description */}
                   <p
-                    className={`text-sm mb-4 line-clamp-5 ${
-                      darkMode ? "text-gray-400" : "text-gray-600"
-                    }`}
+                    className={`text-sm mb-4 line-clamp-4 ${secondaryText}`}
                   >
                     {game.deskripsi}
                   </p>
 
+                  {/* Play Button */}
                   <button
-                    onClick={() => window.open(game.scratch_url, "_blank")}
+                    type="button"
+                    onClick={() =>
+                      window.open(
+                        game.scratch_url,
+                        "_blank",
+                        "noopener,noreferrer"
+                      )
+                    }
                     className="w-full py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white font-semibold transition-all duration-300 flex items-center justify-center gap-2"
                   >
-                    <Play className="w-4 h-4" fill="currentColor" />
+                    <Play
+                      className="w-4 h-4"
+                      fill="currentColor"
+                    />
+
                     Main Game
                   </button>
                 </div>
@@ -694,21 +814,24 @@ const App = () => {
         )}
       </section>
 
-      {/* Footer */}
+      {/* ======================================
+          FOOTER
+      ====================================== */}
+
       <footer
         className={`border-t ${
-          darkMode ? "bg-gray-800 border-gray-700" : "bg-white border-gray-200"
+          darkMode
+            ? "bg-gray-800 border-gray-700"
+            : "bg-white border-gray-200"
         } mt-12`}
       >
         <div className="container mx-auto px-4 py-8">
           <div className="text-center">
             <p
-              className={`text-sm ${
-                darkMode ? "text-gray-400" : "text-gray-600"
-              }`}
+              className={`text-sm ${secondaryText}`}
             >
-              © 2025 Galeri Game Siswa. Dibuat dengan ❤️ untuk para pembuat game
-              masa depan.
+              © 2025 Galeri Game Siswa. Dibuat dengan ❤️
+              untuk para pembuat game masa depan.
             </p>
           </div>
         </div>
@@ -717,4 +840,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default GameGallery;
