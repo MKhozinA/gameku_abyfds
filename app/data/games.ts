@@ -443,4 +443,40 @@ export const gamesData: Game[] = [
       "https://plus.unsplash.com/premium_vector-1725810735634-3a6bc02396f0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y2F2ZXJuc3xlbnwwfHwwfHx8MA%3D%3D",
     scratch_url: "https://scratch.mit.edu/projects/1380113283/",
   },
+  {
+    id: 39,
+    judul: "Football Penalty Game",
+    pembuat: "Al Aufa Sakhiy Mywinner",
+    angkatan: "8",
+    kategori: ["Sports", "Pilihan Editor"],
+    deskripsi:
+      "Game ini adalah game menendang bola ke gawang. Pemain harus menendang bola ke gawang dan menghindari kiper untuk mencetak gol.",
+    thumbnail:
+      "https://images.unsplash.com/vector-1782305136924-4d4eddce8d34?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a2VlcGVyfGVufDB8fDB8fHww",
+    scratch_url: "https://scratch.mit.edu/projects/1385448875",
+  },
+  {
+    id: 40,
+    judul: "Catch The Apple",
+    pembuat: "Keanu Yusuf Reynaldi",
+    angkatan: "8",
+    kategori: ["Action"],
+    deskripsi:
+      "Tingkatkan score dengan menangkap apel di mangkuk. Dapatkan banyak score dengan menangkap apel sebanyak banyaknya!",
+    thumbnail:
+      "https://plus.unsplash.com/premium_vector-1720969885511-11c5e72e8e27?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGFwcGxlfGVufDB8fDB8fHww",
+    scratch_url: "https://scratch.mit.edu/projects/1379330976",
+  },
+  {
+    id: 41,
+    judul: "Ghost Escape",
+    pembuat: "Zarrin Dhia Syarafana Ridwan",
+    angkatan: "8",
+    kategori: ["Horror", "Action"],
+    deskripsi:
+      "Ghost Escape adalah game di mana pemain harus mengendalikan seorang karakter untuk melarikan diri dari hantu.",
+    thumbnail:
+      "https://plus.unsplash.com/premium_vector-1722605888830-ae9256fecfb8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Z2hvc3R8ZW58MHx8MHx8fDA%3D",
+    scratch_url: "https://scratch.mit.edu/projects/1370095376/",
+  },
 ];
